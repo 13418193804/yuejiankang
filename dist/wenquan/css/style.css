@@ -1,0 +1,284 @@
+@charset "utf-8";/*!
+ * @名称：base.css
+ * @功能：1、重设浏览器默认样式
+ *       2、设置通用原子类/公共/全局样式
+ */body,html{position:relative;height:100%;}
+body{background:#fafafa;font-size:14px;color:#000;}
+article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
+body,button,input,select,textarea{font-family:PingFang SC,Microsoft YaHei;font-size:14px;line-height:1.42857143;font-weight:300}
+*{box-sizing:border-box}
+dd,div,dl,dt,form,h1,h2,h3,h4,h5,h6,img,li,ol,p,ul{margin:0;padding:0;border:0}
+li,ul{margin:0;padding:0;list-style:none}
+a{blr:expression(this.onFocus=this.blur());-webkit-tap-highlight-color:transparent;-moz-tap-highlight-color:transparent}
+:focus{outline:0}
+a,div{color:#333;-moz-tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}
+a{margin:0;padding:0;background:0 0;color:#484848;vertical-align:baseline}
+a,a:hover,a:link,a:visited{text-decoration:none}
+a:hover{color:#008ad5}
+a:active{text-decoration:none}
+em,i{font-style:normal}
+a:focus,input:focus{outline:0}
+.input:after{clear:both;content:"";display:block;height:0;visibility:hidden}
+input,select,textarea{font-size:100%;outline:0;/*border:none*/}
+i{font-style:normal}
+:-moz-placeholder,::-moz-placeholder{color:#666}
+input:-ms-input-placeholder{color:#999}
+input::-webkit-input-placeholder{color:#666}
+table{border-collapse:collapse;border-spacing:0}
+th{text-align:inherit}
+fieldset,img{border:none}
+iframe{display:block}
+abbr,acronym{border:none;font-variant:normal}
+del{text-decoration:line-through}
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:300}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:300}
+q:after,q:before{content:''}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+a,ins{text-decoration:none}
+:focus,a:focus{outline:0}
+.clearfix:after,.clearfix:before{content:"";display:table}
+.clearfix:after{clear:both;overflow:hidden}
+.clearfix{zoom:1}
+.clear{clear:both;display:block;font-size:0;height:0;line-height:0;overflow:hidden}
+
+.header{max-width:750px; height:46px; line-height:46px; background: #53a4f4; margin:0 auto} 
+.title{ width:100%; padding:0px 0px 0px; margin-bottom:0px; border-bottom:0px solid #53a4f4; text-align:center;}
+.title h2{ font-size:20px; color:#fff; font-weight:400}
+.title p{ text-align:left; margin-top:15px; font-size:14px;}
+
+
+.main{ max-width:750px; margin:0 auto; background:#fff; padding:20px;}
+
+
+.question{ width:100%; margin:30px 0;}
+.question.frist{ margin-top:0}
+.label{ margin:5px 0}
+
+input[type="text"],textarea{border: 1px #dbdbdb solid;padding: 2px 5px; margin:0px 0; border-radius:2px; width:100%; height:38px; line-height:38px;}
+textarea{ height:120px; margin-top:10px; line-height:22px; padding:5px 10px;}
+input[type="text"].Validform_error{ background:#ffe7e7}
+
+
+/*自定义radio*/
+.input{position:relative}
+.input .Validform_checktip{ top:-30px;}
+.input.text .Validform_checktip{top:-20px;}
+
+
+.rds{border-radius:2px; border:1px solid #dbdbdb; position:relative}
+.radio{ clear:both; position:relative; padding:10px 30px;}
+.rds.rd .radio{ padding:0px 0px;}
+.radio label{ width:100%; display:inline-block; padding:10px 30px;}
+.radio.bt-l{border-bottom:1px solid #eee;}
+.radio i{width: 14px;height: 14px;float: left;cursor: pointer;text-align: center;margin-right: 10px; border-radius:999px;background:#fff; border:1px solid #cad2db; position:absolute; left:8px; top:12px;}
+.radioclass {opacity: 0;cursor: pointer;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter: alpha(opacity=0); display:none}
+.radio.on i{background:#fff; border:4px solid #52c1ea;}
+
+
+.heid{ display:none}
+.font-9{ color:#999; margin:3px 0;}
+
+.p{ padding:0 30px 10px;}
+.m2{ margin:10px 3px;}
+
+
+/*地区选择*/
+.m_zlxg{ width:93px; height:30px; line-height:30px;cursor:pointer;float:left;margin:0 10px 0 0;display:inline;}
+.m_zlxg p{ width:71px; padding-left:10px; overflow:hidden; line-height:30px; color:#333333; font-size:12px; font-family:"微软雅黑";text-overflow:ellipsis; white-space:nowrap;}
+.m_zlxg2{ position:absolute; top:29px; border:1px solid #ded3c1;background:#fff; width:91px; display:none; max-height:224px;-height:224px; overflow-x:hidden; overflow-y:auto;white-space:nowrap;}
+.m_zlxg2 li{line-height:28px;white-space:nowrap; padding-left:10px;font-family:"微软雅黑";color:#333333; font-size:12px;}
+.m_zlxg2 li:hover{ color:#7a5a21;}
+
+
+
+
+select { color:#666; border:medium none;
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("../images/arrow.png") no-repeat right center; background-size:12px auto;
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px; width:100%;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+.select{ clear:both; padding:10px 10px;}
+.select.bt-l{border-bottom:1px solid #eee;}
+
+
+
+
+
+
+/*自定义多选*/
+.check,.cbox{border-radius:2px; border:1px solid #dbdbdb; position:relative;}
+.ckbox{}
+.ckbox.bt-l{border-bottom:1px solid #eee;}
+input.ck{ display:none;}
+.ckbox label{width:100%; cursor:pointer;display:inline-block; padding: 10px 35px; position:relative;}
+
+label.disabled{background-position:left 0px;}
+
+
+.check .ckbox {padding-left: 22px; display: inline-block;cursor:pointer;vertical-align:middle; width:100%; padding: 10px 35px; position:relative;}
+
+.ckbox i{ position:absolute; top:11px; left:10px; width:17px; height:16px; float:left;background: transparent url(../images/radio.png) no-repeat left top;}
+.hRadio_Checked i{ background-position: left bottom;}
+
+.rdbox{ display:none}
+
+label.checkbox i{ position:absolute; top:11px; left:10px; width:16px; height:16px; float:left;}
+label.checked i{ background-position:0 -16px;}
+
+
+.btn{ width:100%; text-align:center; margin-bottom:10px;}
+.button{ width:132px; height:38px; line-height:38px; color:#fff; font-size:20px; border:medium none; border-radius:3px; background:#53a4f4; cursor:pointer;}
+
+
+
+/*提示*/
+.Validform_checktip{ position:absolute; min-width:80px; height:30px; line-height:30px; background:#f66; border:1px solid #f66; float:left; top:0; right:0; padding:0 10px; border-radius:3px; display:none; color:#fff;}
+.Validform_wrong{ display:block;}
+.Validform_right{ display:none;}
+
+.rds .Validform_checktip{top:-31px;}
+.check .Validform_checktip{ top:-31px;}
+.cklist .Validform_checktip{top:-31px;}
+
+
+
+
+.cklist{ position:relative;}
+
+.chk{ display:none}
+.chk + label i{
+	/*background-color: #FFF;
+	border: 1px solid #C1CACA;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 5px;
+	display: inline-block;
+	position:absolute;
+	margin-right: 30px;*/
+	background:url(../images/dx.png) no-repeat 0 0;position:absolute;
+}
+.chk + label:active i{
+	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+	 background-position:0 -16px;
+}
+
+
+.chk:checked + label i{
+	background-position:0 -16px;
+	/*background-color: #f66;
+	border: 1px solid #92A1AC;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+	color: #243441;*/
+}
+
+.chk:checked + label:after i{
+	background-position:0 -16px;
+	/*content: '\2714';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: #758794;
+	width: 100%;
+	text-align: center;
+	font-size: 1.4em;
+	padding: 1px 0 0 0;
+	vertical-align: text-top;*/
+}
+
+
+
+
+/*日期*/
+#datehsdate{ overflow:hidden}
+
+[name='jHsDate'] {
+    position: absolute;
+    max-width: 420px; min-width:320px;
+    width: auto;
+    height: 160px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    background-color:#ffffff;
+}
+
+.yearHsDate,
+.dayHsDate,
+.hourHsDate,
+.minuteHsDate {
+    height: 160px;
+    width: 95px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.hs_year,
+.hs_day,
+.hs_hour,
+.hs_minute {
+    list-style: none;
+   /* width: 72px;*/
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+    .hs_year:hover,
+    .hs_day:hover,
+    .hs_mon:hover {
+        background-color: #eeeeee;
+        color: #000000;
+    }
+
+.hs_check,
+.hs_check :hover{
+    background-color: #3ab2d0!important;
+    color: #ffffff!important;
+}
+
+.monHsDate {
+    width: 167px; height:160px;
+    display: inline-block;
+    padding:15px 5px;
+    margin: 0; border-left:1px solid #dddddd;
+}
+
+.hs_mon {
+    list-style: none;
+    width: 42px;
+    height: 22px; line-height:22px;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+    padding: 0px 5px;
+    border-radius: 4px;
+    float: left;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.noCheck {
+    background-color: #f4f4f4;
+    cursor: not-allowed;
+}
+
+.dayHsDate {
+    width: 60px;
+    border-left: 1px solid #dddddd;
+}

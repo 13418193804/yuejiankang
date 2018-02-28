@@ -1,0 +1,999 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>问卷</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/date.js"></script>
+</head>
+
+<body>
+<div class="header">
+  <div class="title">
+    <h2>爱肺计划筛查问卷</h2>
+  </div>
+</div>
+<div class="main">
+  <div class="box">
+   <form class="demoform"  action="http://120.78.206.182:8080/api/order/updateAsk">
+      <div class="question frist">
+        <div class="label">您的姓名:</div>
+        <div class="input">
+          <input id="name" value="" class="input_public" name="name" datatype="s2-16" nullmsg="请填写您的姓名！" errormsg="请填写您的姓名！" type="text">
+          <em></em></div>
+      </div>
+      <div class="question">
+        <div class="label">您的性别:</div>
+        <div class="check">
+          <input name="gender" datatype="*" nullmsg="请选择性别！" errormsg="请选择性别！" id="male" value="1" type="radio" class="rdbox">
+          <label class="ckbox bt-l" for="male"><i></i>男</label>
+          <input name="gender" id="female" value="2" type="radio" class="rdbox">
+          <label class="ckbox" for="female"><i></i>女</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的出生日期:</div>
+        <div class="rds">
+          <div class="select bt-l">
+            <select name="year1">
+            </select>
+          </div>
+          <div class="select bt-l">
+            <select name="month1">
+            </select>
+          </div>
+          <div class="select">
+            <select name="day1" datatype="l">
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的体重：（公斤kg）</div>
+        <div class="input">
+          <input id="us" name="us" value="" class="input_public" type="text" datatype="n" nullmsg="请填写您的体重！" errormsg="请填写您的体重！" >
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的身高：（厘米cm）</div>
+        <div class="input">
+          <input id="us" name="us" value="" class="input_public" type="text" datatype="n" nullmsg="请填写您的身高！" errormsg="请填写您的身高！">
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的住址:</div>
+        <div class="rds">
+          <div class="select bt-l">
+            <select id="province" name="province">
+            </select>
+          </div>
+          <div class="select bt-l">
+            <select id="city" name="city" >
+            </select>
+          </div>
+          <div class="select">
+            <select id="county" name="county">
+            </select>
+          </div>
+        </div>
+        <div class="input text">
+          <textarea class="option" name="" id="" placeholder="街道信息" datatype="*"  nullmsg="请填写您的所在街道！" errormsg="请填写您的所在街道！"></textarea>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的联系电话：</div>
+        <div class="input">
+          <input id="us" name="us" value="" class="input_public" type="text" datatype="s8-12"  nullmsg="请填写您的联系电话！" errormsg="请填写您的联系电话！">
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的文化程度:</div>
+        <div class="check">
+          <input name="whcd" id="whcd1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择文化程度！">
+          <label for="whcd1" class="ckbox bt-l"><i></i>未上过学</label>
+          <input name="whcd" id="whcd2" value="2" type="radio" class="rdbox">
+          <label for="whcd2" class="ckbox bt-l"><i></i>小学</label>
+          <input name="whcd" id="whcd3" value="3" type="radio" class="rdbox">
+          <label for="whcd3" class="ckbox bt-l"><i></i>初中</label>
+          <input name="whcd" id="whcd4" value="4" type="radio" class="rdbox">
+          <label for="whcd4" class="ckbox bt-l"><i></i>高中</label>
+          <input name="whcd" id="whcd5" value="5" type="radio" class="rdbox">
+          <label for="whcd5" class="ckbox bt-l"><i></i>专科</label>
+          <input name="whcd" id="whcd6" value="6" type="radio" class="rdbox">
+          <label for="whcd6" class="ckbox bt-l"><i></i>大学本科</label>
+          <input name="whcd" id="whcd7" value="7" type="radio" class="rdbox">
+          <label for="whcd7" class="ckbox"><i></i>本科以上</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的祖籍:</div>
+        <div class="check">
+          <input name="ndzj" id="ndzj1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！">
+          <label for="ndzj1" class="ckbox bt-l"><i></i>潮汕</label>
+          <input name="ndzj" id="ndzj2" value="2" type="radio" class="rdbox">
+          <label for="ndzj2" class="ckbox bt-l"><i></i>客家</label>
+          <input name="ndzj" id="ndzj3" value="3" type="radio" class="rdbox">
+          <label for="ndzj3" class="ckbox bt-l"><i></i>广东其他</label>
+          <input name="ndzj" id="ndzj4" value="4" type="radio" class="rdbox">
+          <label for="ndzj4" class="ckbox"><i></i>其他省/直辖市/自治区/行政区</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的婚姻状况:</div>
+        <div class="check">
+          <input name="hyzk" id="hyqk1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" onClick="divClick();">
+          <label for="hyqk1" class="ckbox bt-l"><i></i>未婚</label>
+          <input name="hyzk" id="hyqk2" value="2" type="radio" class="rdbox" onClick="divClick();">
+          <label for="hyqk2" class="ckbox bt-l"><i></i>初婚</label>
+          <input name="hyzk" id="hyqk3" value="3" type="radio" class="rdbox" onClick="divClick();">
+          <label for="hyqk3" class="ckbox bt-l"><i></i>再婚</label>
+          <input name="hyzk" id="hyqk4" value="4" type="radio" class="rdbox" onClick="divClick();">
+          <label for="hyqk4" class="ckbox bt-l"><i></i>离异</label>
+          <input name="hyzk" id="hyqk5" value="5" type="radio" class="rdbox" onClick="divClick();">
+          <label for="hyqk5" class="ckbox bt-l"><i></i>丧偶</label>
+          <input name="hyzk" id="hyqk6" value="6" type="radio" class="rdbox" onClick="divClick();">
+          <label for="hyqk6" class="ckbox"><i></i>未婚同居</label>
+        </div>
+      </div>
+      <div class="question" id="hy-s" style="display:none">
+        <div class="label">您初次结婚的年龄（周岁）：</div>
+        <div class="input">
+          <input id="cchl" name="cchl" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！">
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有吸烟经历？（每天吸1支以上并连续或累计6个月以上者定义为吸烟）:</div>
+        <div class="check">
+          <input name="xyjl" id="xyjl11" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" onClick="clickXyjl();">
+          <label for="xyjl11" class="ckbox bt-l"><i></i>否</label>
+          <input name="xyjl" id="xyjl12" value="2" type="radio" class="rdbox"  onClick="clickXyjl();">
+          <label for="xyjl12" class="ckbox"><i></i>是</label>
+        </div>
+      </div>
+      <div id="xyjlBox" class="heid">
+        <div class="question">
+          <div class="label">您曾经或目前的吸烟情况:</div>
+          <p class="font-9">每天吸烟多少包？</p>
+          <div class="input">
+            <input id="xyjl21" name="xyjl2" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！" >
+          </div>
+          <p class="font-9">共吸烟多少年？</p>
+          <div class="input">
+            <input id="xyjl22" name="xyjl2" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！" >
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您是否戒烟？</div>
+          <div class="check">
+            <input name="xyjl2" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+            <label class="ckbox bt-l"><i></i>否</label>
+            <input name="xyjl2" value="2" type="radio" class="rdbox">
+            <label class="ckbox"><i></i>是，已戒多少年</label>
+            <div class="p">
+              <p class="m2">
+                <input id="us" name="us" value="" class="input_public" type="text">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您平常没有感冒时，有咳嗽吗？</div>
+        <div class="check">
+          <input name="gm1" id="gm11" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！"  onClick="clickGm();">
+          <label for="gm11" class="ckbox bt-l"><i></i>否</label>
+          <input name="gm1" id="gm12" value="2" type="radio" class="rdbox" onClick="clickGm();">
+          <label for="gm12" class="ckbox"><i></i>是</label>
+        </div>
+      </div>
+      <div id="gmBox" class="heid">
+        <div class="question">
+          <div class="label">您平时是否感觉有气促？</div>
+          <div class="check">
+            <input name="gm2" id="gm21" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！">
+            <label for="gm21" class="ckbox bt-l"><i></i>否</label>
+            <input name="gm2" id="gm22" value="2" type="radio" class="rdbox">
+            <label for="gm22" class="ckbox bt-l"><i></i>在平地急行或上楼梯时有</label>
+            <input name="gm2" id="gm23" value="3" type="radio" class="rdbox">
+            <label for="gm23" class="ckbox"><i></i>平地正常行走时有</label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您父母、兄弟姐妹及子女是否现患或曾患慢支炎、哮喘、肺气肿、慢阻肺或其他肺病？</div>
+          <div class="check">
+            <input name="gm3" id="gm31" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！">
+            <label for="gm31" class="ckbox bt-l"><i></i>是</label>
+            <input name="gm3" id="gm32" value="2" type="radio" class="rdbox">
+            <label for="gm32" class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您平常没有感冒时，是否咯痰或者感觉有痰难以咳出吗？</div>
+        <div class="check">
+          <input name="gm4" id="gm41" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" onClick="clickGm4();">
+          <label for="gm41" class="ckbox bt-l"><i></i>否</label>
+          <input name="gm4" id="gm42" value="2" type="radio" class="rdbox" onClick="clickGm4();">
+          <label for="gm42" class="ckbox"><i></i>是</label>
+        </div>
+      </div>
+      <div id="gmBox4" class="heid">
+        <div class="question">
+          <div class="label">您是否有咯血症状？</div>
+          <div class="check">
+            <input name="lxzz" id="lxzz1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+            <label for="lxzz1" class="ckbox bt-l"><i></i>是</label>
+            <input name="lxzz" id="lxzz2" value="2" type="radio" class="rdbox">
+            <label for="lxzz2" class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您是否有胸痛/背痛/腰痛症状？</div>
+          <div class="check">
+            <input name="ytzz" id="ytzz1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+            <label for="ytzz1" class="ckbox bt-l"><i></i>是</label>
+            <input name="ytzz" id="ytzz2" vvalue="2" type="radio" class="rdbox">
+            <label for="ytzz2" class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您是否有声嘶症状？</div>
+          <div class="check">
+            <input name="sysy" id="sysy1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+            <label for="sysy1" class="ckbox bt-l"><i></i>是</label>
+            <input name="sysy" id="sysy2" value="2" type="radio" class="rdbox">
+            <label for="sysy1" class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">如您不吸烟，您在周边(居住或工作的室内环境中)是否有接触二手烟？</div>
+        <div class="check">
+          <input name="esx" id="esx1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" onClick="clickEsy();">
+          <label for="esx1" class="ckbox bt-l"><i></i>我吸烟</label>
+          <input name="esx" id="esx2" value="2" type="radio" class="rdbox" onClick="clickEsy();">
+          <label for="esx2" class="ckbox bt-l"><i></i>否，未接触</label>
+          <input name="esx" id="esx3" value="3" type="radio" class="rdbox" onClick="clickEsy();">
+          <label for="esx3" class="ckbox bt-l"><i></i>是，偶尔</label>
+          <input name="esx" id="esx4" value="4" type="radio" class="rdbox" onClick="clickEsy();">
+          <label for="esx4" class="ckbox bt-l"><i></i>是，经常</label>
+          <input name="esx" id="esx5" value="5" type="radio" class="rdbox" onClick="clickEsy();">
+          <label for="esx5" class="ckbox"><i></i>是，总是</label>
+        </div>
+      </div>
+      <div id="esxBox" class="heid">
+        <div class="question">
+          <div class="label">您的身边二手烟的情况:</div>
+          <p class="font-9">每天多少包？</p>
+          <div class="input">
+            <input id="esx1" name="esx1" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！">
+          </div>
+          <p class="font-9">共多少年？</p>
+          <div class="input">
+            <input id="esx1" name="esx1" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！">
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您的职业情况:</div>
+        <p class="font-9">您做的最长的职业是什么？</p>
+        <div class="input">
+          <input id="zy" name="zy" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！" >
+        </div>
+        <p class="font-9">工龄是多少年？</p>
+        <div class="input">
+          <input id="zy" name="zy" value="" class="input_public" type="text" datatype="*" nullmsg="请填写！" >
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">是否接触过有毒物质？</div>
+        <div class="check">
+          <input name="ydwz" id="ydwz1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" onClick="clickYdwz();">
+          <label for="ydwz1" class="ckbox bt-l"><i></i>否</label>
+          <input name="ydwz" id="ydwz2" value="2" type="radio" class="rdbox" onClick="clickYdwz();">
+          <label for="ydwz2" class="ckbox"><i></i>是</label>
+        </div>
+      </div>
+      <div id="ydwzBox">
+        <div class="question">
+          <div class="label">请说明具体接触物是什么，可勾选多项。</div>
+          <div class="cbox cklist">
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz21" value="1" class="chk" type="checkbox" datatype="*" errormsg="请选择">
+              <label for="ydwz21"><i></i>砷（吡酸）</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz22" value="2" class="chk" type="checkbox">
+              <label for="ydwz22"><i></i>石棉</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz23" value="3" class="chk" type="checkbox">
+              <label for="ydwz23"><i></i>油漆</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz24" value="4" class="chk" type="checkbox">
+              <label for="ydwz24"><i></i>镍/镉/铬（ 冶炼，电镀）</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz25" value="4" class="chk" type="checkbox">
+              <label for="ydwz25"><i></i>橡胶</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz26" value="4" class="chk" type="checkbox">
+              <label for="ydwz26"><i></i>煤尘、粉尘</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz27" value="4" class="chk" type="checkbox">
+              <label for="ydwz27"><i></i>农药</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz28" value="4" class="chk" type="checkbox">
+              <label for="ydwz28"><i></i>放射线</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="ydwz2" id="ydwz29" value="4" class="chk" type="checkbox">
+              <label for="ydwz29"><i></i>铍、铀、氡等</label>
+            </div>
+            <div class="ckbox">
+              <input name="ydwz2" id="ydwz210" value="5" class="chk" type="checkbox">
+              <label for="ydwz210"><i></i>其他</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您住房室内的通风情况？</div>
+        <div class="check">
+          <input name="tfqk" id="tfqk1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="tfqk1" class="ckbox bt-l"><i></i>良好</label>
+          <input name="tfqk" id="tfqk2" value="2" type="radio" class="rdbox">
+          <label for="tfqk2" class="ckbox bt-l"><i></i>一般</label>
+          <input name="tfqk" id="tfqk3" value="3" type="radio" class="rdbox">
+          <label for="tfqk3" class="ckbox"><i></i>差</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您10年内房屋或办公场所有无新装修？</div>
+        <div class="check">
+          <input name="xzx" id="xzx1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="xzx1" class="ckbox bt-l"><i></i>有</label>
+          <input name="xzx" id="xzx2" value="2" type="radio" class="rdbox">
+          <label for="xzx2" class="ckbox"><i></i>无</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">近十年来，您家做饭时住房内的油烟情况：</div>
+        <div class="check">
+          <input name="yyqk" id="yyqk1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="yyqk1" class="ckbox bt-l"><i></i>无烟</label>
+          <input name="yyqk" id="yyqk2" value="2" type="radio" class="rdbox">
+          <label for="yyqk2" class="ckbox bt-l"><i></i>少许</label>
+          <input name="yyqk" id="yyqk3" value="3" type="radio" class="rdbox">
+          <label for="yyqk3" class="ckbox bt-l"><i></i>无较多烟</label>
+          <input name="yyqk" id="yyqk4" value="4" type="radio" class="rdbox">
+          <label for="yyqk4" class="ckbox"><i></i>很多</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您家中有无抽油烟机或排气扇？</div>
+        <div class="check">
+          <input name="yyqk2" id="yyqk21" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="yyqk21" class="ckbox bt-l"><i></i>有</label>
+          <input name="yyqk2" id="yyqk22" value="2" type="radio" class="rdbox">
+          <label for="yyqk22" class="ckbox"><i></i>无</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您家中有长期烧香习惯吗？</div>
+        <div class="check">
+          <input name="sxxg" id="sxxg1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="sxxg1" class="ckbox bt-l"><i></i>无</label>
+          <input name="sxxg" id="sxxg1" value="2" type="radio" class="rdbox">
+          <label for="sxxg2" class="ckbox bt-l"><i></i>偶尔</label>
+          <input name="sxxg" id="sxxg1" value="3" type="radio" class="rdbox">
+          <label for="sxxg3" class="ckbox bt-l"><i></i>早晚</label>
+          <input name="sxxg" id="sxxg1" value="4" type="radio" class="rdbox">
+          <label for="sxxg4" class="ckbox"><i></i>持续（或附近有寺庙）</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您参与烹饪的情况：</div>
+        <div class="check">
+          <input name="prqk" id="prqk1" value="1" type="radio" class="rdbox" datatype="*" nullmsg="请选择！" >
+          <label for="prqk1" class="ckbox bt-l"><i></i>无</label>
+          <input name="prqk" id="prqk2" value="2" type="radio" class="rdbox">
+          <label for="prqk2" class="ckbox bt-l"><i></i>偶尔</label>
+          <input name="prqk" id="prqk3" value="3" type="radio" class="rdbox">
+          <label for="prqk3" class="ckbox bt-l"><i></i>经常</label>
+          <input name="prqk" id="prqk4" value="4" type="radio" class="rdbox">
+          <label for="prqk4" class="ckbox"><i></i>小时候</label>
+        </div>
+      </div>
+
+	  
+      <div class="question">
+        <div class="label">近十年，您家中做饭使用的燃料（可多选）：</div>
+        <div class="cbox cklist">
+          <div class="ckbox bt-l">
+            <input name="zfrl2" id="zfrl21" value="1" class="chk" type="checkbox" datatype="*" nullmsg="请选择！">
+            <label for="zfrl21"><i></i>煤</label>
+          </div>
+          <div class="ckbox bt-l">
+            <input name="zfrl2" id="zfrl22"value="2" class="chk" type="checkbox">
+            <label for="zfrl22"><i></i>液化石油气或煤气</label>
+          </div>
+          <div class="ckbox bt-l">
+            <input name="zfrl2" id="zfrl23"value="3" class="chk" type="checkbox">
+            <label for="zfrl23"><i></i>柴草</label>
+          </div>
+          <div class="ckbox bt-l">
+            <input name="zfrl2" id="zfrl24"value="4" class="chk" type="checkbox">
+            <label for="zfrl24"><i></i>柴草</label>
+          </div>
+          <div class="ckbox">
+            <input name="zfrl2" id="zfrl25"value="5" class="chk" type="checkbox">
+            <label for="zfrl25"><i></i>其他，请注明</label>
+            <!--<div class="p"><p class="m2"><input id="us" name="us" value="" class="input_public" type="text"></p></div>--> 
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否经常饮酒？（经常是指平均每周至少1次，连续6个月以上）：</div>
+        <div class="check">
+          <input name="yjqk" id="yjqk1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="yjqk1" class="ckbox bt-l"><i></i>否，从不饮</label>
+          <input name="yjqk" id="yjqk2" value="2" type="radio">
+          <label for="yjqk2" class="ckbox bt-l"><i></i>否，偶尔饮</label>
+          <input name="yjqk" id="yjqk3" value="3" type="radio">
+          <label for="yjqk3" class="ckbox bt-l"><i></i>是，目前仍经常饮</label>
+          <input name="yjqk" id="yjqk4" value="4" type="radio">
+          <label for="yjqk4" class="ckbox"><i></i>以前是，目前已戒酒。</label>
+          <!--<div class="p"><p class="m2"><input id="us" name="us" value="" class="input_public" type="text"></p></div>--> 
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否经常饮茶？（经常指平均每周至少3次，连续6个月以上）:</div>
+        <div class="check">
+          <input name="ycqk" id="ycqk1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="ycqk1" class="ckbox bt-l"><i></i>否，从不饮</label>
+          <input name="ycqk" id="ycqk2" value="2" type="radio">
+          <label for="ycqk2" class="ckbox bt-l"><i></i>否，偶尔饮</label>
+          <input name="ycqk" id="ycqk3" value="3" type="radio">
+          <label for="ycqk3" class="ckbox bt-l"><i></i>是，目前仍经常饮</label>
+          <input name="ycqk" id="ycqk4" value="4" type="radio">
+          <label for="ycqk4" class="ckbox"><i></i>以前是，现在不经常饮</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您经常食用腌晒食品（咸鱼、腊肉、腌肉、酸菜、泡菜、咸菜等）吗？</div>
+        <div class="check">
+          <input name="yssp" id="yssp1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="yssp1" class="ckbox bt-l"><i></i>不吃</label>
+          <input name="yssp" id="yssp2" value="2" type="radio">
+          <label for="yssp2" class="ckbox bt-l"><i></i>有时</label>
+          <input name="yssp" id="yssp3" value="3" type="radio">
+          <label for="yssp3" class="ckbox bt-l"><i></i>经常（2-3次/周）</label>
+          <input name="yssp" id="yssp4" value="4" type="radio">
+          <label for="yssp4" class="ckbox"><i></i>每天</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您经常食用豆类、奶类食品吗？</div>
+        <div class="check">
+          <input name="dlsp" id="dlsp1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="dlsp1" class="ckbox bt-l"><i></i>不吃</label>
+          <input name="dlsp" id="dlsp2" value="2" type="radio">
+          <label for="dlsp2" class="ckbox bt-l"><i></i>有时</label>
+          <input name="dlsp" id="dlsp3" value="3" type="radio">
+          <label for="dlsp3" class="ckbox bt-l"><i></i>经常（2-3次/周）</label>
+          <input name="dlsp" id="dlsp4" value="4" type="radio">
+          <label for="dlsp4" class="ckbox"><i></i>每天</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否经常参加体育锻炼（经常是指平均每周3次以上，每次超过30分钟）？</div>
+        <div class="check">
+          <input name="tydl" id="tydl1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="tydl1" class="ckbox bt-l"><i></i>否或低于标准</label>
+          <input name="tydl" id="tydl2" value="2" type="radio">
+          <label for="tydl2" class="ckbox bt-l"><i></i>温和锻炼（不出汗）</label>
+          <input name="tydl" id="tydl3" value="3" type="radio">
+          <label for="tydl3" class="ckbox"><i></i>强度锻炼（出汗））</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否因室内外空气温度变化过敏？</div>
+        <div class="check">
+          <input name="wdgm" id="wdgm1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="wdgm1" class="ckbox bt-l"><i></i>有</label>
+          <input name="wdgm" id="wdgm2" value="2" type="radio">
+          <label for="wdgm2" class="ckbox"><i></i>无</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您家里有养猫或狗吗？</div>
+        <div class="check">
+          <input name="ymyg" id="ymyg1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="ymyg1" class="ckbox bt-l"><i></i>有</label>
+          <input name="ymyg" id="ymyg2" value="2" type="radio">
+          <label for="ymyg2" class="ckbox"><i></i>无</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您每天睡眠总时长为多少个小时？</div>
+        <div class="input">
+          <input id="smzsk" name="smzsk" value="" class="input_public" type="text" datatype="n" nullmsg="请填写！">
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您每晚入睡时间为几时几分？</div>
+        <div class="input">
+          <input id="rssj" name="rssj" value="" class="input_public" type="text" datatype="s2-16" nullmsg="请填写！">
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">近些年您是否曾经受较大的精神创伤（亲人患重病或死亡、家庭不和破裂、重大财产损失、意外失业、重大意外身体伤害、暴力恐吓等）？</div>
+        <div class="check">
+          <input name="jscs" id="jscs1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="jscs1" class="ckbox bt-l"><i></i>是</label>
+          <input name="jscs" id="jscs2" value="2" type="radio">
+          <label for="jscs2" class="ckbox"><i></i>否</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">近些年您是否有较长一段时间内精神处于压抑状况（连续超过6个月）？</div>
+        <div class="check">
+          <input name="jsyy" id="jsyy1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="jsyy1" class="ckbox bt-l"><i></i>是</label>
+          <input name="jsyy" id="jsyy2" value="2" type="radio">
+          <label for="jsyy2" class="ckbox"><i></i>否</label>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有高血压？</div>
+        <div class="check">
+          <input name="gxy" id="gxy1" value="1" type="radio" datatype="*" nullmsg="请选择！" onClick="divClick1();">
+          <label for="gxy1" class="ckbox bt-l"><i></i>无</label>
+          <input name="gxy" id="gxy2" value="2" type="radio" onClick="divClick1();">
+          <label for="gxy2" class="ckbox"><i></i>有</label>
+        </div>
+      </div>
+      <div id="gxyBox" class="heid">
+        <div class="question gxy-box">
+          <div class="label">请问您是从何时开始有高血压的:</div>
+          <div class="rds">
+            <div class="select bt-l">
+              <select name="year2">
+              </select>
+            </div>
+            <div class="select bt-l">
+              <select name="month2">
+              </select>
+            </div>
+            <div class="select">
+              <select name="day2" datatype="l">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="question gxy-box">
+          <div class="label">您现在服用降压药吗？</div>
+          <div class="check">
+            <input name="gxy-1" value="1" type="radio">
+            <label class="ckbox bt-l"><i></i>是</label>
+            <input name="gxy-1" value="2" type="radio">
+            <label class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有糖尿病？</div>
+        <div class="check">
+          <input name="tnb" id="tnb1" value="1" type="radio" datatype="*" nullmsg="请选择！" onClick="divClick2();">
+          <label for="tnb1" class="ckbox bt-l"><i></i>无</label>
+          <input name="tnb" id="tnb2" value="2" type="radio" onClick="divClick2();">
+          <label for="tnb2" class="ckbox"><i></i>有</label>
+        </div>
+      </div>
+      <div id="tnbBox" class="heid">
+        <div class="question tnb-box">
+          <div class="label">请问您是从何时开始有糖尿病的:</div>
+          <div class="rds">
+            <div class="select bt-l">
+              <select name="year3">
+              </select>
+            </div>
+            <div class="select bt-l">
+              <select name="month3">
+              </select>
+            </div>
+            <div class="select">
+              <select name="day3" datatype="l">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="question tnb-box">
+          <div class="label">您现在服用降糖药吗？</div>
+          <div class="check">
+            <input name="tnb-1" value="1" type="radio">
+            <label class="ckbox bt-l"><i></i>是</label>
+            <input name="tnb-1" value="2" type="radio">
+            <label class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有心脏病？</div>
+        <div class="check">
+          <input name="xzb" id="xzb1" value="1" type="radio" datatype="*" nullmsg="请选择！" onClick="divClick3();">
+          <label for="xzb1" class="ckbox bt-l"><i></i>无</label>
+          <input name="xzb" id="xzb2" value="2" type="radio" onClick="divClick3();">
+          <label for="xzb2" class="ckbox"><i></i>有</label>
+        </div>
+      </div>
+      <div id="xzbBox" class="heid">
+        <div class="question">
+          <div class="label">请问您是从何时开始有心脏病的:</div>
+          <div class="rds">
+            <div class="select bt-l">
+              <select name="year4">
+              </select>
+            </div>
+            <div class="select bt-l">
+              <select name="month4">
+              </select>
+            </div>
+            <div class="select">
+              <select name="day4" datatype="l">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您具体的病状是什么？</div>
+          <div class="cbox cklist">
+            <div class="ckbox bt-l">
+              <input name="xzb-1" id="xzb-11" value="1" class="chk" type="checkbox" datatype="*" nullmsg="请选择！">
+              <label for="xzb-11"><i></i>风心</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xzb-1" id="xzb-12" value="2" class="chk" type="checkbox">
+              <label for="xzb-12"><i></i>冠心</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xzb-1" id="xzb-13" value="3" class="chk" type="checkbox">
+              <label for="xzb-13"><i></i>心衰</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xzb-1" id="xzb-14" value="4" class="chk" type="checkbox">
+              <label for="xzb-14"><i></i>心率失常</label>
+            </div>
+            <div class="ckbox">
+              <input name="xzb-1" id="xzb-15" value="5" class="chk" type="checkbox">
+              <label for="xzb-15"><i></i>其他</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有脑中风？</div>
+        <div class="check">
+          <input name="nzf" id="nzf1" value="1" type="radio" datatype="*" nullmsg="请选择！" onClick="divClick4();">
+          <label for="nzf1" class="ckbox bt-l"><i></i>无</label>
+          <input name="nzf" id="nzf2" value="2" type="radio" onClick="divClick4();">
+          <label for="nzf2" class="ckbox"><i></i>有</label>
+        </div>
+      </div>
+      <div id="nzfBox" class="heid">
+        <div class="question">
+          <div class="label">请问您是从何时开始有脑中风的:</div>
+          <div class="rds">
+            <div class="select bt-l">
+              <select name="year5">
+              </select>
+            </div>
+            <div class="select bt-l">
+              <select name="month5">
+              </select>
+            </div>
+            <div class="select">
+              <select name="day5" datatype="l">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您具体的病状是什么？</div>
+          <div class="cbox cklist">
+            <div class="ckbox bt-l">
+              <input name="nzf-1" id="nzf-11" value="1" class="chk" type="checkbox" type="checkbox" datatype="*" nullmsg="请选择！">
+              <label for="nzf-11"><i></i>脑血栓</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="nzf-1" id="nzf-12" value="2" class="chk" type="checkbox">
+              <label for="nzf-12"><i></i>脑出血</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="nzf-1" id="nzf-13" value="3" class="chk" type="checkbox">
+              <label for="nzf-13"><i></i>脑梗死</label>
+            </div>
+            <div class="ckbox">
+              <input name="nzf-1" id="nzf-14" value="4" class="chk" type="checkbox">
+              <label for="nzf-14"><i></i>其它</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否有慢性呼吸系统疾病？</div>
+        <div class="cbox cklist">
+          <div class="ckbox bt-l">
+            <input name="hxdjb" id="hxdjb1" value="1" class="chk chc1" type="checkbox" datatype="*" nullmsg="请选择！">
+            <label for="hxdjb1"><i></i>无</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb2" value="2" class="chk" type="checkbox">
+            <label for="hxdjb2"><i></i>肺结核</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb3" value="3" class="chk" type="checkbox">
+            <label for="hxdjb3"><i></i>慢性支气管炎</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb4" value="4" class="chk" type="checkbox">
+            <label for="hxdjb4"><i></i>哮喘</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb5" value="5" class="chk" type="checkbox">
+            <label for="hxdjb5"><i></i>肺气肿</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb6" value="6" class="chk" type="checkbox">
+            <label for="hxdjb6"><i></i>支气管扩张</label>
+          </div>
+          <div class="ckbox bt-l hc1">
+            <input name="hxdjb" id="hxdjb7" value="7" class="chk" type="checkbox">
+            <label for="hxdjb7"><i></i>尘肺</label>
+          </div>
+          <div class="ckbox hc1">
+            <input name="hxdjb" id="hxdjb8" value="8" class="chk" type="checkbox">
+            <label for="hxdjb8"><i></i>其它</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您10岁前是否患过下列疾病而住院治疗？</div>
+        <div class="cbox cklist">
+          <div class="ckbox bt-l">
+            <input name="ssq" id="ssq1" value="1" class="chk chc2" type="checkbox" datatype="*" nullmsg="请选择！">
+            <label for="ssq1"><i></i>否</label>
+          </div>
+          <div class="ckbox bt-l hc2">
+            <input name="ssq" id="ssq2" value="2" class="chk" type="checkbox">
+            <label for="ssq2"><i></i>麻疹</label>
+          </div>
+          <div class="ckbox bt-l hc2">
+            <input name="ssq" id="ssq3" value="3" class="chk" type="checkbox">
+            <label for="ssq3"><i></i>百日咳</label>
+          </div>
+          <div class="ckbox bt-l hc2">
+            <input name="ssq" id="ssq4" value="4" class="chk" type="checkbox">
+            <label for="ssq4"><i></i>肺炎或支气管炎</label>
+          </div>
+          <div class="ckbox bt-l hc2">
+            <input name="ssq" id="ssq5" value="5" class="chk" type="checkbox">
+            <label for="ssq5"><i></i>湿疹</label>
+          </div>
+          <div class="ckbox hc2">
+            <input name="ssq" id="ssq6" value="6" class="chk" type="checkbox">
+            <label for="ssq6"><i></i>其它呼吸病</label>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您家里人有患癌症吗？家里人指近亲三代（父母、兄弟姐妹、子女）？</div>
+        <div class="check">
+          <input name="cbqk" id="cbqk1" value="1" type="radio" datatype="*" nullmsg="请选择！">
+          <label for="cbqk1" class="ckbox bt-l"><i></i>无</label>
+          <input name="cbqk" id="cbqk2" value="2" type="radio">
+          <label for="cbqk2" class="ckbox"><i></i>有,具体情况：</label>
+          <div class="p">
+            <p class="m2">
+              <input id="cb" name="cb" value="" class="input_public" type="text">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您既往或目前是否诊断为哮喘？</div>
+        <div class="check">
+          <input name="xcb" id="xcb1" value="1" type="radio" datatype="*" nullmsg="请选择！" onClick="clickXcb();">
+          <label for="xcb1" class="ckbox bt-l"><i></i>否</label>
+          <input name="xcb" id="xcb2" value="2" type="radio" onClick="clickXcb();">
+          <label for="xcb2" class="ckbox"><i></i>是</label>
+        </div>
+      </div>
+      <div id="xcbBox" class="heid">
+        <div class="question">
+          <div class="label">当您在平地急行或上楼梯时是否感到气短？</div>
+          <div class="check">
+            <input name="xcb-1" id="xcb-11" value="1" type="radio" datatype="*" nullmsg="请选择！">
+            <label for="xcb-11" class="ckbox bt-l"><i></i>是</label>
+            <input name="xcb-1" id="xcb-12" value="2" type="radio">
+            <label for="xcb-12" class="ckbox"><i></i>否</label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="label">您的上述症状与下列哪些因素有关？</div>
+          <div class="cbox cklist">
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-21" value="1" class="chk" type="checkbox" datatype="*" nullmsg="请选择！">
+              <label for="xcb-21"><i></i>灰霾天气</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-22" value="2" class="chk" type="checkbox">
+              <label for="xcb-22"><i></i>感冒</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-23" value="3" class="chk" type="checkbox">
+              <label for="xcb-23"><i></i>吸烟</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-24" value="4" class="chk" type="checkbox">
+              <label for="xcb-24"><i></i>被动吸烟</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-25" value="5" class="chk" type="checkbox">
+              <label for="xcb-25"><i></i>油烟</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-26" value="6" class="chk" type="checkbox">
+              <label for="xcb-26"><i></i>煤烟</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-27" value="7" class="chk" type="checkbox">
+              <label for="xcb-27"><i></i>冷空气</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-28"  value="8" class="chk" type="checkbox">
+              <label for="xcb-28"><i></i>运动</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-29" value="9" class="chk" type="checkbox">
+              <label for="xcb-29"><i></i>月经期</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-212" value="10" class="chk" type="checkbox">
+              <label for="xcb-212"><i></i>过敏原</label>
+            </div>
+            <div class="ckbox bt-l">
+              <input name="xcb-2" id="xcb-213" value="11" class="chk" type="checkbox">
+              <label for="xcb-213"><i></i>刺激性气体</label>
+            </div>
+            <div class="ckbox">
+              <input name="xcb-2" id="xcb-214" value="12" class="chk" type="checkbox">
+              <label for="xcb-214"><i></i>其它</label>
+            </div>
+            <div class="p">
+              <p class="m2">
+                <input id="cb" name="cb" value="" class="input_public" type="text">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="label">您是否患过敏性疾病？</div>
+        <div class="cbox cklist" id="list">
+          <div class="ckbox bt-l">
+            <input name="gmjb-2" id="gmjb-21" value="1" class="chk chc" type="checkbox" datatype="*" nullmsg="请选择！">
+            <label for="gmjb-21"><i></i>无</label>
+          </div>
+          <div class="ckbox bt-l hc">
+            <input name="gmjb-2" id="gmjb-22" value="2" class="chk" type="checkbox">
+            <label for="gmjb-22"><i></i>支气管哮喘</label>
+          </div>
+          <div class="ckbox bt-l hc">
+            <input name="gmjb-2" id="gmjb-23" value="3" class="chk" type="checkbox">
+            <label for="gmjb-23"><i></i>过敏性鼻炎</label>
+          </div>
+          <div class="ckbox bt-l hc">
+            <input name="gmjb-2" id="gmjb-24" value="4" class="chk" type="checkbox">
+            <label for="gmjb-24"><i></i>过敏性眼结膜炎</label>
+          </div>
+          <div class="ckbox bt-l hc">
+            <input name="gmjb-2" id="gmjb-25" value="5" class="chk" type="checkbox">
+            <label for="gmjb-25"><i></i>食物过敏</label>
+          </div>
+          <div class="ckbox bt-l hc">
+            <input name="gmjb-2" id="gmjb-26" value="6" class="chk" type="checkbox">
+            <label for="gmjb-26"><i></i>药物过</label>
+          </div>
+          <div class="ckbox hc">
+            <input name="gmjb-2" id="gmjb-27" value="7" class="chk" type="checkbox">
+            <label for="gmjb-27"><i></i>过敏性皮炎</label>
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <input class="button" id="submit" value="提交" tabindex="8" type="submit">
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="js/address.js"></script> 
+<script type="text/javascript">_init_area();</script> 
+<script type="text/javascript" src="js/Validform.js"></script> 
+<script type="text/javascript">
+ $(function(){
+   /**/
+   function getQueryString(name) {
+     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+     var r = window.location.search.substr(1).match(reg);
+     if (r != null) return unescape(r[2]); return null;
+   }
+
+   var user_id = getQueryString('user_id');
+   var order_id = getQueryString('order_id');
+
+   /**
+   var dataparam = '?order_id='+ order_id +'&user_id=' + user_id;
+   window.location.href='/#/customer/appointment/appointmentChooseHospital' + dataparam;
+
+   return;
+   /**/
+
+ var bdyz=$(".demoform").Validform({
+		tiptype:3,
+		showAllError:true,
+		ignoreHidden:true,
+        postonce:true,
+        ajaxPost:true,
+        beforeCheck:function(curform){
+             //在表单提交执行验证之前执行的函数，curform参数是当前表单对象。
+             //这里明确return false的话将不会继续执行验证操作;
+        },
+        beforeSubmit:function(curform){
+            return status;
+        },
+        callback:function(data){
+
+        }
+	});
+
+
+ });
+ 
+$(function(){
+	$('.chklist').hcheckbox();
+	$('.check').hradio();
+	
+	$('#btnOK').click(function(){
+		var checkedValues = new Array();
+		$('.chklist :checkbox').each(function(){
+			if($(this).is(':checked'))
+			{
+				checkedValues.push($(this).val());
+			}
+		});
+
+		alert(checkedValues.join(','));
+		alert($('.check :checked').val());
+	});
+});
+
+ new YMDselect('year1','month1','day1');
+ new YMDselect('year2','month2','day2');
+ new YMDselect('year3','month3','day3');
+ new YMDselect('year4','month4','day4');
+ new YMDselect('year5','month5','day5');
+</script>
+</body>
+</html>
