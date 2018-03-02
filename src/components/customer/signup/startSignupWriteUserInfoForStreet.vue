@@ -154,12 +154,20 @@ export default {
         "&user_type_id=" +
         this.$AppCacheKey.getPeopleType();
       console.log(userdata);
-      this.$wrapperHttp.post(this, userdata, url, function(data) {
-        if (data) {
+      console.log('开始')
+      this.$wrapperHttp.roundPost(this, userdata, url, function(data) {
+        console.log(data) //null  data是res.data.data   data === null     message = res.data.message  取不到 下面报的错误就写死了
+        if(data.code === 0){
+          that.options.content = data.msg;
+          that.showNotification = true;
+          that.inUploading = 1;
+          return
+        }
+        if (data.data) {
           let _that = that;
           let params = {};
-          params.order_id = data.order_id;
-          params.user_id = data.user_id;
+          params.order_id = data.data.order_id;
+          params.user_id = data.data.user_id;
 
 
 		window.location.href=webconfig.domain+'/wenquan/ask.html?order_id='+params.order_id+'&user_id='+params.user_id;
@@ -178,6 +186,7 @@ export default {
        //   });
 
         } else {
+
           that.inUploading = 1;
         }
       });

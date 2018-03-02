@@ -47,6 +47,12 @@
             <span>{{selectDate}}</span>
           </div>
         </div>
+
+        <div v-if="dateList.length ===0" style="display:flex;align-items:
+        center;justify-content: center;color:#ccc;margin-top:65px;">
+            <div style="font-size: 18px">暂没有可用的号源</div>
+        </div>
+
       </div>
     </popup>
   </div>

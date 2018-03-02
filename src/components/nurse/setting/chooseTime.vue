@@ -2,27 +2,25 @@
 
 
   <div class="container">
-
-
-
     <div class="choosetime_area">
       <div class="top">
         <p style="fontSize:12px;padding:20px 15px;">点击选中，再次点击取消选中，可多选
           <span @click="allSelect" style="color:red;float:right;right:50px;fontSize:14px;">全选</span>
         </p>
       </div>
+      <!--
+      <div class="need_details" style="margin:0">
+       <button class="haoyuan" style="color:#000;margin:0px;font-size:15px;margin-left:5px;" @click="onshow">选择可用号源数:
+           <span style="color:red;font-size:16px;">{{values}}</span></button>
+      </div>
+      -->
       <div class="time_area2">
         <div class="time" v-for="(item,index) in items" :key="index" :class="{'check':item.checked}"
              @click="changeIndex(item)">
-          <p style="height:40px;padding:0 3px;margin:0px;fontSize:10px;">{{item.time_area}}</p>
+          <p style="height:40px;width:80px;padding:0 3px;margin:0px;fontSize:10px;text-align:center;">{{item.time_area}}</p>
         </div>
       </div>
 
-      <div class="need_details">
-        <div class="haoyuan" @click="onshow">可用号源 {{values}}</div>
-
-
-      </div>
       <div class="button">
         <div class="cancel" @click="onCancel">取消</div>
         <div class="ok" @click="handleSetTime()">确定</div>
@@ -30,36 +28,15 @@
     </div>
 
 
-    <div :class="popupVisible ?'bg_shop1' :'bg_shop_none1'"
-         style='z-index: 1;background-color: rgba(0, 0, 0, 0.498039);height: 100%;width: 100%;' @click='onshow'>
-      <div style="position: relative;width:100%;height:100%;">
-
-        <div style=' background-color:#fff;width:100%;    height: 200px;overflow: hidden;text-align: -webkit-center;' :class="popupVisible ?'modiaBoxUp2' :'modiaBoxDown2'" @click.stop='bindBody'>
-
-  <div style="padding:0 20px;display:flex;justify-content: flex-end;">
-
-        <div style="font-size: 14px;">确定</div>
-  </div>
-
-<div>
-
-  <mt-picker :slots="slots" @change="onValuesChange"
-             style="">
-  </mt-picker>
-
+<div class="need_details">
+<mt-popup v-model="popupVisible" position="bottom" style="width:100%">
+      <div style="padding:0 20px;display:flex;justify-content: flex-end;">
+               <div style="font-size: 16px;color:blue;margin-top:5px;" @click="onOk">确定</div>
+           </div>
+     <mt-picker :slots="slots" @change="onValuesChange"style=""></mt-picker>
+</mt-popup>
 </div>
-
-
-
-
-
-
-        </div>
-      </div>
-    </div>
-
-
-  </div>
+</div>
 </template>
 
 <script>
@@ -74,7 +51,7 @@
     },
     data() {
       return {
-        values: '2',//选中了哪个值
+        values: '',//选中了哪个值
         popupVisible: false,
         items: [],
         activeIndex: 0,
@@ -96,16 +73,17 @@
     },
     methods: {
       //update picker
-      bindBody() {
-        return;
-      },
       onValuesChange(picker, values) {
         this.values = values[0]
       },
       onshow() {
         this.popupVisible = !this.popupVisible
-      },
 
+      },
+      onOk(){
+         this.popupVisible = !this.popupVisible
+         this.values = values[0]
+      },
       init() {
         this.week = JSON.parse(this.$route.query.week)
         let that = this;
@@ -165,7 +143,7 @@
 
       },
       onCancel() {
-        this.$router.push({
+        this.$router.replace({
           name: "bookTime"
         });
       },
@@ -219,14 +197,15 @@
 
   .time_area2 {
     height: 250px;
-    width: auto;
+    width: 290px;;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
     overflow: auto;
     flex: 1;
     align-items: flex-start;
+    text-align:center;
+    margin:auto;
   }
 
   .time {
@@ -236,13 +215,15 @@
     border: 1px solid #cccccc;
     color: #000;
     margin-top: 3px;
+    margin-left:3px;
+
   }
 
   .button {
     display: flex;
     flex-direction: row;
     height: 40px;
-    margin-top: 5px;
+    margin-top: 15px;
     border-top: 1px solid #ccc;
     justify-content: space-around;
     background-color: #ffffff;
@@ -279,98 +260,4 @@
 
   }
 
-  .bg_shop1 {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    z-index: 999;
-
-    background-color: rgba(0, 0, 0, 0.498039);
-    height: 100%;
-    width: 100%;
-  }
-
-  .bg_shop_none1 {
-    position: fixed;
-    bottom: -100%;
-    animation: myfirst0002 0.5s;
-  }
-
-  @keyframes myfirst0002 {
-    from {
-      display: flex;
-    }
-
-    to {
-      display: none;
-    }
-  }
-
-  .modiaBoxUp2 {
-    position: absolute;
-    bottom: 0;
-    animation: myfirst000 0.5s;
-    -moz-animation: myfimyfirst000rst 0.5s;
-    /* Firefox */
-    -webkit-animation: myfirst000 0.5s;
-    /* Safari and Chrome */
-    -o-animation: myfirst000 0.5s;
-    /* Opera */
-  }
-
-  @keyframes myfirst000 {
-    from {
-      bottom: -100%;
-    }
-
-    to {
-      bottom: 0;
-    }
-  }
-
-  .modiaBoxDown2 {
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    bottom: -100%;
-    animation: myfirst0001 0.5s;
-  }
-
-  @keyframes myfirst0001 {
-    from {
-      bottom: 0;
-    }
-
-    to {
-      bottom: -100%;
-      display: none;
-    }
-  }
-  /*.picker-item {*/
-    /*height:36px;*/
-    /*line-height:36px;*/
-    /*padding: 0 10px;*/
-    /*white-space:nowrap;*/
-    /*position: relative;*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
-    /*color: #707274;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*width: 100%;*/
-    /*box-sizing: border-box;*/
-    /*-webkit-transition-duration: .3s;*/
-    /*transition-duration: .3s;*/
-    /*-webkit-backface-visibility: hidden;*/
-    /*backface-visibility: hidden;*/
-  /*}*/
-  /*.picker-item.picker-selected {*/
-    /*color: #000;*/
-    /*-webkit-transform: translate3d(0, 0, 0) rotateX(0);*/
-    /*transform: translate3d(0, 0, 0) rotateX(0);*/
-    /*border-top: solid 1px #e5e5e5;*/
-    /*border-bottom: solid 1px #e5e5e5;*/
-  /*}*/
-  /*.picker-slot-wrapper{*/
-    /*-webkit-overflow-scrolling: touch;*/
-  /*}*/
 </style>
