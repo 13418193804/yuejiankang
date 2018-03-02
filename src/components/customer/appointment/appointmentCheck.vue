@@ -61,7 +61,10 @@
                  {{appointmentDetail.mobile}}
               </div>
         </div>
-        <div>
+
+
+
+        <div v-if="appointmentDetail.service_name !='已取消'">
           <div class="weui-cell">
               <div class="weui-cell__bd">
                  就诊地点
@@ -72,6 +75,8 @@
           </div>
           <p style="padding:0 0 15px 15px">{{appointmentDetail.hospital_name + '  ' + appointmentDetail.address}}</p>
         </div>
+
+
       </div>
      <div v-show="isShowContent" class="button-wrapper">
        <div style="width:100%;padding:20px;margin-bottom: 20px;">
@@ -151,7 +156,7 @@ export default {
               that.appointmentDetail.service_name = "已取消";
               that.appointmentDetail.imgurl = require("../../../common/image/icon_chaoshiquxiao.png");
               that.inUploading = -1;
-            }           
+            }
       }
       that.isShowContent = true;
     });
