@@ -150,6 +150,7 @@ export default {
       this.$http
         .post(url, userdata)
         .then(response => {
+          console.log(response)
           if (response.status === 200 && response.data.code === 1) {
             that.uploadUserInfo();
           } else {
