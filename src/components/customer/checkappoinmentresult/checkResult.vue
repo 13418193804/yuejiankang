@@ -33,7 +33,10 @@ export default {
       checkResultData:{}
     };
   },
-  computed: {},
+  computed: {
+
+
+  },
   created() {
     let that = this;
     let url = webconfig.webserverurl + "/api/order/resultDetail";
