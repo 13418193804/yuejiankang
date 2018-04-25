@@ -24,7 +24,7 @@
      </div>
     <div class="content-first">
       <vue-loading-top :size="{width: '25px', height: '25px'}" v-show="!isShowContent"></vue-loading-top>
-      <div v-show="isShowContent" class="first-item-wrapper weui-form-preview__bd" v-for="(appointmentDate,index) in appointmentDates" 
+      <div v-show="isShowContent" class="first-item-wrapper weui-form-preview__bd" v-for="(appointmentDate,index) in appointmentDates"
           @click="appointmentDate.user_num > 0 && onItemClick(appointmentDate,index)" :key="index" :class="{'first-item-select':currentIndex === index}">
            <div class="weui-form-preview__item">
              <label class="weui-form-preview__label" style="color:#000000"> {{appointmentDate.time_area}}</label>
@@ -87,7 +87,7 @@ export default {
     }
   },
   created() {
-    
+
   },
 
   methods: {
@@ -202,6 +202,7 @@ export default {
       console.log("userdata");
       console.log(userdata);
       this.$wrapperHttp.post(this, userdata, url, function(data) {
+        console.log('data',data)
         if (data) {
           that.$router.push({
             name: "appointmentSucceed",

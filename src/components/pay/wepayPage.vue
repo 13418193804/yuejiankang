@@ -10,6 +10,7 @@
     </div>
     <div class="bottom-btn-place-wrapper">
     </div>
+
     <div class="bottom-btn-wrapper">
       <x-button text="报名缴费" class="custom-primary-button" @click.native="gotoNext()">
       </x-button>
@@ -26,8 +27,9 @@
     },
     data() {
       return {
+        open_id: this.$cookie.get("openid"),
         order_id: '',
-        user_id:''
+        user_id: ''
       };
     },
     created() {
@@ -40,6 +42,7 @@
     },
     computed: {},
     methods: {
+
       gotoNext() {
         let order_id = ''
         if (this.order_id) {
@@ -47,49 +50,86 @@
         }
         let that = this;
         this.$wechatHelper.getJsPayData(this, {order_id: order_id}, function (ress) {
-          let data = ress.data
-          if (data) {
-            that.$wechat.chooseWXPay({
-              appId: data.appId,
-              timestamp: data.timeStamp,
-              nonceStr: data.nonceStr,
-              package: data.package,
-              signType: data.signType,
-              paySign: data.paySign,
-              success(res) {
-                if (res.errMsg === "chooseWXPay:ok") {
-                  // window.location.reload();
-                  if (order_id != '') {
-                    that.$router.push({
-                      name: "appointmentChooseHospital",
-                      query: {
-                        order_id: ress.sec_order_id,
-                        user_id: that.user_id
-                      }
-                    });
-                  } else {
-                    that.$router.push({
-                      name: "signUpSucceed"
-                    });
-                  }
 
-                } else {
-                  // window.alert(" 支付失败");
+          // if (that.open_id === 'opoj20kMSZogWTFg7gSE0VQIyx8E' ||req.cookies.openid ==  "opoj20gd5aSykeaGXJbp1DPjZjA4") {
+            // console.log(ress)
+            // let send = ress.data ? JSON.parse(ress.data) : ''
+            // if (send) {
+            //   let data = send.data
+            //   console.log('data', data)
+            //   console.log('data.timeStamp', data.timeStamp)
+            //
+            //
+            //
+            //   WeixinJSBridge.invoke("getBrandWCPayRequest",{
+            //       appId: data.appId,
+            //       timeStamp: data.timeStamp,
+            //       nonceStr: data.nonceStr,
+            //       package: data.package,
+            //       signType: data.signType,
+            //       paySign: data.paySign,
+            //     },
+            //     function(e){
+            //       alert(e.err_msg)
+            //     })
+            // } else {
+            //   alert(ress.msg)
+            // }
+
+
+
+          // } else {
+            let data = ress.data
+            if (data) {
+
+
+
+              that.$wechat.chooseWXPay({
+                appId: data.appId,
+                timestamp: data.timeStamp,
+                nonceStr: data.nonceStr,
+                package: data.package,
+                signType: data.signType,
+                paySign: data.paySign,
+                success(res) {
+                  alert(res)
+                  if (res.errMsg === "chooseWXPay:ok") {
+                    // window.location.reload();
+                    if (order_id != '') {
+                      that.$router.push({
+                        name: "appointmentChooseHospital",
+                        query: {
+                          order_id: ress.sec_order_id,
+                          user_id: that.user_id
+                        }
+                      });
+                    } else {
+                      that.$router.push({
+                        name: "signUpSucceed"
+                      });
+                    }
+
+                  } else {
+                    // window.alert(" 支付失败");
+                    window.location.reload();
+                  }
+                },
+                cancel() {
+                  //window.alert("支付取消");
+                  window.location.reload();
+                },
+                error(res) {
+                  alert(res)
+                  // window.alert("支付失败");
                   window.location.reload();
                 }
-              },
-              cancel() {
-                //window.alert("支付取消");
-                window.location.reload();
-              },
-              error(res) {
-                // window.alert("支付失败");
-                window.location.reload();
-              }
-            });
-          } else {
-            alert(ress.msg)
-          }
+              });
+
+
+            } else {
+              alert(ress.msg)
+            }
+          // }
 
         });
       },

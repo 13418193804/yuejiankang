@@ -96,6 +96,9 @@
         });
       });
     },
+
+
+
     getJsPayData: function(component,params, callback) {
       let url = '/wechatpay/getJsPayData';
       //let params = {};
