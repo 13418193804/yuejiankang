@@ -47,6 +47,8 @@
           <p style="font-size:0.8rem">预约号:{{item.order_no}}</p>
           <p style="font-size:0.8rem">证件号:{{item.code}}</p>
           <p style="font-size:0.8rem">手机号:{{item.mobile}}</p>
+          <p style="font-size:0.8rem">年龄:{{item.age}}</p>
+          <p style="font-size:0.8rem">性别:{{item.sex}}</p>
           <p style="font-size:0.8rem;color:#71a0d1">{{item.describe}}</p>
         </div>
         <div class="weui-cell__ft">
@@ -137,7 +139,7 @@ export default {
       this.searchParams.search = null;
     },
     getData(params) {
-     
+
       if(this.isHidden)
          params.is_hidden = 1;
       else

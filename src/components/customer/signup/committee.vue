@@ -50,6 +50,7 @@
         this.$AppCacheKey.setCommitteeId(committee_id);
         let params = {committee_id:0};
         params.committee_id = committee_id;
+        sessionStorage.committee_id =committee_id;
       //alert(JSON.stringify(params));
         //update
         this.$router.push({
