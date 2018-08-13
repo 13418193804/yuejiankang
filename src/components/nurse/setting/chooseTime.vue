@@ -33,7 +33,7 @@
       <div style="padding:0 20px;display:flex;justify-content: flex-end;">
                <div style="font-size: 16px;color:blue;margin-top:5px;" @click="onOk">确定</div>
            </div>
-     <mt-picker :slots="slots" @change="onValuesChange"style=""></mt-picker>
+     <mt-picker :slots="slots" @change="onValuesChange" style=""></mt-picker>
 </mt-popup>
 </div>
 </div>
